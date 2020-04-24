@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y -qq \
     && apt-get clean 
 
 
-RUN cp -rp /etc/weewx /etc/sample.weewx
+RUN cp -rp /etc/weewx /etc/.weewx.example
+RUN cp -rp /usr/share/weewx/user /usr/share/weewx/.user.example
 COPY start.sh /scripts/start.sh
 RUN chmod +x /scripts/start.sh
 
