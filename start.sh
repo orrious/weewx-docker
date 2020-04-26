@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if test -f "/extensions/packages"; then
+if test -f "/extensions/packages.conf"; then
   apt-get update 
-  apt-get install -y $(sed '/^#/ d' /extensions/packages | sed ':a;N;$!ba;s/\n/ /g')
+  apt-get install -y $(sed '/^#/ d' /extensions/packages.conf | sed ':a;N;$!ba;s/\n/ /g')
   apt-get clean
 fi
 
