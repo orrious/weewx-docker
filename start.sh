@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if test -f "/usr/share/weewx/user/packages"; then
+if test -f "/extensions/packages"; then
   apt-get update 
-  apt-get install -y $(sed '/^#/ d' /usr/share/weewx/user/packages | sed ':a;N;$!ba;s/\n/ /g')
+  apt-get install -y $(sed '/^#/ d' /extensions/packages | sed ':a;N;$!ba;s/\n/ /g')
   apt-get clean
 fi
 
