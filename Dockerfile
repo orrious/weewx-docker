@@ -10,13 +10,14 @@ MAINTAINER Paul Coiner
 #
 RUN apt-get update && apt-get install -y \
     wget \
-    gnupg2
+    gnupg2 \
+    python3
 
 RUN wget -qO - http://weewx.com/keys.html | apt-key add - \
-    && wget -qO - http://weewx.com/apt/weewx.list | tee /etc/apt/sources.list.d/weewx.list
+    && wget -qO - http://weewx.com/apt/weewx-python3.list | tee /etc/apt/sources.list.d/weewx.list
 
 RUN apt-get update && apt-get install -y -qq \
-    weewx \
+    weewx=4.0.0-1 \
     && apt-get clean 
 
 
